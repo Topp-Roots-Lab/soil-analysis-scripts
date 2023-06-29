@@ -49,15 +49,20 @@ if (!require("stringr", quietly = TRUE)) {
   install.packages("stringr")
 }
 
+if (!require("rstudioapi", quietly = TRUE)) { 
+  install.packages("rstudioapi")
+}
+
 library(stringr)
 library(EBImage)
 library(dplyr)
+library(rstudioapi)
 
 # Path to folder with a subfolder for each pair of images 
 # POSSIBLE SOURCE OF ERROR: This script assumes a very specific folder structure
 # Namely, one parent folder containing 1 folder FOR EACH pair of images (initial and final)
 # In this step, you must select the PARENT FOLDER
-images_path <- choose.dir()
+images_path <- selectDirectory()
 
 # Prepare .csv file to store results  
 # This will name results with the year, month, day, hour, and minute
